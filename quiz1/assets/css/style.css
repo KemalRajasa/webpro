@@ -1,12 +1,13 @@
 /* assets/css/style.css */
 
 :root {
-    --bg-color: #f8f9fa;
+    --bg-color: #F9F6EE;
     --text-color: #212529;
     --card-bg-color: #ffffff;
     --card-border-color: #e9ecef;
     --primary-color: #0d6efd;
     --muted-text-color: #6c757d;
+    --frame-bg-color: #f5f5f0;
 }
 
 body.dark-mode {
@@ -16,6 +17,16 @@ body.dark-mode {
     --card-border-color: #333;
     --primary-color: #4dabf7;
     --muted-text-color: #adb5bd;
+    --frame-bg-color: #2a2a2a;
+}
+
+.card-img-top {
+    width: 100%;
+    /* Pastikan lebar gambar selalu penuh */
+    height: 200px;
+    /* TENTUKAN TINGGI YANG SAMA UNTUK SEMUA GAMBAR */
+    object-fit: cover;
+    /* Ini adalah properti kuncinya */
 }
 
 /* =================================
@@ -194,4 +205,238 @@ a:hover {
 .social-icons a:hover {
     color: #ffffff;
     /* Warna ikon menjadi putih saat disentuh mouse */
+}
+
+.interest-card {
+    /* Warna latar belakang semi-transparan */
+    background: rgba(255, 255, 255, 0.05);
+
+    /* Efek blur pada background di belakang kartu */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Untuk support Safari */
+
+    /* Batas tipis untuk efek panel kaca */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 16px;
+    transition: background 0.3s ease;
+    height: 100%;
+}
+
+.interest-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* Latar menjadi sedikit lebih terang saat disentuh mouse */
+}
+
+/* =================================
+   Blog Style Layout
+   ================================= */
+
+/* Hapus padding default dari 'main' agar banner bisa penuh */
+main {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Wadah utama untuk banner dan foto profil */
+.blog-header {
+    position: relative;
+    /* Kunci agar foto profil bisa diposisikan di atasnya */
+    margin-bottom: 100px;
+    /* Memberi jarak antara foto profil dan konten di bawahnya */
+}
+
+/* Styling untuk banner */
+.banner {
+    height: 250px;
+    /* Atur tinggi banner sesuai selera */
+    background-image: url('../image/surabaya1.png');
+    /* Ganti dengan gambar kota Anda */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Styling untuk foto profil yang tumpang tindih */
+.profile-image {
+    /* --- Ini bagian paling penting --- */
+    position: absolute;
+    /* Membuat gambar "melayang" dari alur normal */
+    top: 180px;
+    /* Posisi dari atas (tinggi banner - setengah tinggi foto) */
+    left: 50%;
+    /* Posisikan di tengah secara horizontal */
+    transform: translateX(-50%);
+    /* Trik agar benar-benar pas di tengah */
+    z-index: 10;
+    /* Pastikan foto berada di atas banner */
+
+    /* --- Styling visual --- */
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* Membuat gambar menjadi bulat */
+    border: 5px solid var(--bg-color);
+    /* Beri batas putih/gelap sesuai tema */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Wadah untuk konten artikel */
+.blog-content {
+    padding: 40px;
+    padding-top: 60px;
+    /* Padding atas lebih besar untuk memberi ruang di bawah foto */
+    background-color: var(--frame-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: -60px;
+    /* Sedikit ditarik ke atas agar lebih dinamis */
+    position: relative;
+    z-index: 5;
+}
+
+.blog-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.blog-meta {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-body p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* =================================
+   Global Card Styling
+   ================================= */
+
+.card {
+    /* Menggunakan variabel warna agar mendukung dark mode */
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+
+    /* Membuat sudut lebih tumpul dan modern */
+    border-radius: 12px;
+
+    /* Menambahkan transisi halus untuk efek hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Membuat semua kartu dalam satu baris memiliki tinggi yang sama */
+    height: 100%;
+
+    /* Menggunakan flexbox untuk alignment konten di dalamnya */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    /* Efek terangkat saat kursor mouse menyentuh kartu */
+    transform: translateY(-8px);
+
+    /* Bayangan yang lebih jelas untuk memberikan kesan kedalaman */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Memastikan konten di dalam card (teks dan tombol) bisa di-align */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Memastikan card-body mengisi sisa ruang */
+}
+
+/* Membuat judul kartu lebih tegas dan mudah dibaca */
+.card-title {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Teks deskripsi mengambil sisa ruang yang tersedia */
+.card-text {
+    flex-grow: 1;
+}
+
+/* Mendorong tombol ke bagian paling bawah kartu */
+.card .btn {
+    margin-top: auto;
+    /* Trik flexbox untuk mendorong elemen ke bawah */
+}
+
+/* =================================
+   Global Card Styling
+   ================================= */
+
+.card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* --- FIX UNTUK FONT TIDAK BERTRANSISI --- */
+.card-title {
+    color: var(--text-color);
+    /* Memaksa judul menggunakan warna tema */
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--muted-text-color);
+    /* Memaksa teks deskripsi menggunakan warna tema */
+    flex-grow: 1;
+}
+
+/* -------------------------------------- */
+
+.card .btn {
+    margin-top: auto;
+}
+
+/* (Opsional) Penyesuaian Tombol agar lebih baik di Dark Mode */
+.dark-mode .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* =================================
+   Content Frame Style (untuk Profile, dll)
+   ================================= */
+.content-frame {
+    background-color: var(--frame-bg-color);
+    /* Menggunakan warna frame yang sudah ada */
+    padding: 40px;
+    /* Jarak antara konten dan tepi frame */
+    border-radius: 16px;
+    /* Sudut yang lebih tumpul dan modern */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan halus */
+    border: 1px solid var(--card-border-color);
+    /* Garis batas tipis */
+}
+
+/* Penyesuaian padding untuk layar kecil/mobile */
+@media (max-width: 768px) {
+    .content-frame {
+        padding: 25px;
+    }
 }
