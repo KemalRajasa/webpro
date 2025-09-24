@@ -1,0 +1,127 @@
+/* =================================
+   Global & Typography Styles
+   ================================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    /* Warna latar belakang abu-abu sangat muda */
+    color: #343a40;
+    /* Warna teks utama (gelap) */
+}
+
+
+/* =================================
+   Profile Page Styles
+   ================================= */
+.profile-page header {
+    padding: 2rem 0;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* Membuat gambar menjadi bulat */
+    object-fit: cover;
+    /* Mencegah gambar menjadi gepeng */
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-me p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.interest-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* Membuat semua kartu sama tinggi */
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    /* Efek sedikit terangkat saat disentuh mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.interest-card .icon {
+    font-size: 3rem;
+    /* Ukuran emoji sebagai ikon */
+    color: #0d6efd;
+    /* Warna biru primer Bootstrap */
+}
+
+/* =================================
+   Slideshow Styles
+   ================================= */
+
+/* Wadah utama slideshow */
+.slideshow-container {
+    max-width: 800px;
+    /* Atur lebar maksimal slideshow */
+    position: relative;
+    /* Penting agar tombol panah bisa diposisikan di atasnya */
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Agar gambar tidak keluar dari sudut rounded */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Sembunyikan semua slide secara default */
+.mySlides {
+    display: none;
+}
+
+/* Tombol panah kiri dan kanan */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    /* Setengah dari tinggi tombol agar pas di tengah */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    /* Mencegah teks panah terseleksi saat di-klik */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Background semi-transparan */
+}
+
+/* Posisikan tombol 'next' di kanan */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Efek hover untuk tombol panah */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animasi Fading */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
